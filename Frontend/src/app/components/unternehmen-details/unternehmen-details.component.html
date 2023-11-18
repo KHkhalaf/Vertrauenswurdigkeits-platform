@@ -1,0 +1,67 @@
+<section>
+  <div class="top">
+    <div class="text">
+     <a href="http://localhost:4200/webseite" target="_blank">
+        <button class="websitebutton">
+          Webseite
+            <img alt="open link in new tab" style="padding-top: 0px; margin-left: 5px;" height="20px" width="20px" src="../../../assets/images/open-in-new.webp" >
+        </button>
+      </a>
+      <div>
+        <img class="logo" alt="unternehmen logo" src="{{logo[0]}}"/>
+        <div class="unternehmen-name">{{ unternehmenDetails1[0] }}</div>
+      </div>
+      <div class="unternehmen-description">{{ unternehmenDetails1[1] }}</div>
+    </div>
+    <div *ngIf="isVergleichen" class="text">
+      <a href="http://localhost:4200/webseite" target=”_blank”>
+        <button class="websitebutton">
+          Webseite
+            <img alt="open link in new tab" style="padding-top: 0px; margin-left: 5px;" height="20px" width="20px" src="../../../assets/images/open-in-new.webp" >
+        </button>
+      </a>
+      <div class="flex-container">
+        <img class="logo" alt="unternehmen logo" src="{{logo[1]}}"/>
+        <div class="unternehmen-name">{{ unternehmenDetails2[0] }}</div>
+      </div>
+      <div class="unternehmen-description">{{ unternehmenDetails2[1] }}</div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="canvas">
+      <canvas class="chart" width="500" height="500" id="MyChart">{{chart}}</canvas>
+    </div>
+    <div class="boxes">
+      <div class="box">
+        <div class="text">1-Zutrauen</div>
+        <div class="icon">
+          <img src="assets/images/Zutrauen.png" />
+        </div>
+      </div>
+      <div class="box">
+        <div class="text">2-Zuverlässigkeit</div>
+        <div class="icon">
+          <img src="assets/images/Zuverlassigkeit.png" />
+        </div>
+      </div> 
+      <div (click)="navigateToSicherheit()" id="sicherheit-box" class="box">
+        <div class="text">3-Sicherheit</div>
+        <div class="icon">
+          <img src="assets/images/Sicherheit.png" />
+        </div>
+      </div>
+      <div class="box">
+        <div class="text">4-Integrität</div>
+        <div class="icon">
+          <img src="assets/images/Integritat.png" />
+        </div>
+      </div>
+      <div class="box">
+        <div class="text">5-Sicherheitslösung</div>
+        <div class="icon">
+          <img src="assets/images/Transparenz.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

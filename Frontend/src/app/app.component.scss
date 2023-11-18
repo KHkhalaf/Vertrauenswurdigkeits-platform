@@ -1,0 +1,138 @@
+$primary-color: #d87430;
+$font-family: "Arial", sans-serif;
+
+body {
+  font-family: $font-family;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  .brand {
+    background-color: $primary-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      color: $primary-color;
+    }
+  }
+
+  .login {
+    border: 2px solid black;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// Unterer Rahmen
+.border-bottom {
+  border-bottom: 5px solid $primary-color;
+}
+
+.container {
+  height: 300px;
+  margin-top: 430px;
+  padding: 5px 15px;
+  display: flex;
+  background-color: #112e51;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+}
+
+.kontakt {
+  display: grid;
+  justify-items: left;
+  margin-left: 30px;
+}
+
+.mat-button:hover {
+  color: #d87430;
+}
+
+.glossar {
+  display: grid;
+  justify-items: left;
+  margin-left: 20px;
+}
+
+.small-navbar {
+  display: none;
+}
+
+.active:hover,
+#menu-btn1:hover,
+#menu-btn2:hover {
+  background-color: #d87430;
+}
+.menu-clicked {
+  background-color: #d87430;
+}
+
+@media (max-width: 1040px) {
+  .large-navbar {
+    display: none;
+  }
+
+  .small-navbar {
+    display: block;
+  }
+
+  .navbar {
+    background-color: #333;
+    padding: 15px;
+    color: white;
+    text-align: center;
+  }
+
+  button {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(223, 223, 223);
+  }
+
+  li {
+    padding: 5px;
+    text-align: center;
+  }
+
+  mat-icon:hover {
+    cursor: pointer;
+  }
+}
+
+strong {
+  font-size: 200;
+}

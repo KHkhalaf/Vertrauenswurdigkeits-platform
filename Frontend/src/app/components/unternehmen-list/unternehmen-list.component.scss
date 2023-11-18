@@ -1,0 +1,156 @@
+/*
+// Gemeinsame Stile für das Suchfeld
+mat-form-field {
+  width: 100%;
+  margin: 20px 0;
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-form-field-infix {
+    border: none;
+    border-radius: 20px;
+    background-color: #f2f2f2; // Hintergrundfarbe des Suchfeldes
+
+    input.mat-input-element {
+      padding: 10px 20px; // Innerer Abstand für das Suchfeld
+      border: none;
+      border-radius: 20px;
+
+      &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .mat-form-field-label {
+    margin-left: 20px; // Positioniert das Label (z.B. "Unternehmen durchsuchen") im Suchfeld
+  }
+}
+
+// Zusätzliche Stile für Unternehmen Vergleichen
+// Wenn es zwei Felder in der `unternehmen-vergleichen` Komponente gibt
+mat-form-field + mat-form-field {
+  margin-left: 20px; // Abstand zwischen den beiden Suchfeldern
+}
+*/
+/*
+.search-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+
+  input {
+    width: 100%;
+    // Weitere Stile nach Bedarf
+  }
+}
+*/
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; // Sorgt für Abstand zwischen den Suchfeldern
+  width: 100%;
+}
+
+.search-container1, .search-container2 {
+  display: grid;
+  /*flex-direction: column;
+  align-items: center;*/
+
+  .headline1, .headline2 {
+    justify-self: center;
+    color: #112E51;
+    font-size: 40px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    margin-top: 50px;
+  }
+
+  .orange-line1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.suche{
+ /* flex: 1;
+  background-color: transparent;
+  padding: 10px;*/
+  flex: 1;
+  width: 650px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: 50px;
+  .suchefield{
+    width: 580px; 
+    height: 70px; 
+    margin-left: 10px; 
+    margin-top: 10px;
+  }
+ /* mat-icon {
+    color: #666;
+    position: absolute;  // Setzen Sie die Position auf "absolute".
+    !*top: 60px;*!           // Passen Sie diesen Wert an, um die vertikale Position zu ändern.
+    right: 100px;        // Passen Sie diesen Wert an, um die horizontale Position zu ändern.
+    !*z-index: 2; *!        // Stellen Sie sicher, dass das Icon über dem Suchfeld angezeigt wird.
+  }*/
+
+  /*mat-form-field {
+    width: 650px;
+    position: relative; // Damit das Icon relativ zu diesem Element positioniert wird.
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-radius: 50px;
+    background-color: #f5f5f5;
+
+    input {
+      padding-left: 15px;
+      padding-right: 30px; // Fügen Sie rechts einen Abstand hinzu, damit der Text nicht über das Icon geschrieben wird.
+    }
+  }*/
+}
+
+.mat-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.toggle-element {
+  padding: 10px;
+  background-color: lightblue;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+@media(max-width: 1040px){
+  img{
+    max-width: 480px;
+  }
+  .suche{
+    max-width: 450px;
+
+    mat-icon{
+      width: 35px;
+    };
+  }
+}
+
+@media(max-width: 1300px){
+  .suche{
+    max-width: 500px;
+  }
+}

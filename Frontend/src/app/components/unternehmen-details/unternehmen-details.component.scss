@@ -1,0 +1,116 @@
+section {
+  margin: 5rem 0;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .text {
+      padding: 5rem 2rem;
+      border-bottom: 2px solid #ddd;
+      border-top: 2px solid #f1f1f1;
+      max-width: 600px;
+      width: 100%;
+      .flex-container {
+        display: flex;
+        align-items: center; 
+      } 
+      .logo{
+        display: inline-block;
+        width: 1.5cm;
+      }
+      .unternehmen-name{
+        display: inline-block;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+      .unternehmen-description{
+        margin-top: 50px;
+        margin-bottom: -50px;
+        font-size: 1.5rem;
+      }
+    }
+    margin-bottom: 10rem;
+  }
+  .container {
+    background: url("../../../assets/images/background-banner-1.jpg");
+    width: 100%;
+    margin-bottom: -350px;
+    .boxes {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center; 
+      justify-content: center;
+      width: 100%;
+      .box {
+        background-color: #fff;
+        margin: 20px 60px;
+        .text {
+          background-color: #d87430;
+          margin: 2px 2px 20px;
+          font-size: 1rem;
+          padding: 10px;
+        }
+        .icon {
+          height: 155px;
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .canvas{
+      display: flex;
+      justify-content: center;
+      .chart {
+        background-color: #fff;
+        margin: 50px 0;
+        border-radius: 80px;
+        padding: 30px;
+      }
+    }
+  }
+}
+
+.websitebutton{
+  margin-left: 500px; 
+  position: absolute; 
+  margin-top: -50px;
+  border-radius: 5px;
+  border-right-width: 1px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+#sicherheit-box{
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media(max-width:1300px){
+  .websitebutton{
+    margin-left: 320px;
+  }
+}
+@media(max-width:900px){
+  .websitebutton{
+    margin-left: 120px;
+  }
+}
+@media(max-width:530px){
+  .websitebutton{
+    margin-left: 50px;
+  }
+  section {
+    .top {
+      .text {
+        font-size: x-large;
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+
+<div class="navbar border-bottom large-navbar">
+  <div class="brand">Vertrauenswürdigkeits-Plattform</div>
+  <nav>
+    <a href="#" >STARTSEITE</a>
+    <button mat-button [matMenuTriggerFor]="menu" [ngClass]="{'menu-clicked': isMenuClicked}" (click)="isMenuClicked = !isMenuClicked">Unternehmen <strong>&#9660;</strong></button>
+    <mat-menu #menu="matMenu">
+      <button id="menu-btn1" mat-menu-item (click)="navigateToSehen()">Unternehmen sehen</button>
+      <button id="menu-btn2" mat-menu-item (click)="navigateToVergleichen()">Unternehmen vergleichen</button>
+    </mat-menu>
+
+    <a href="#">IT-SICHERHEITSLÖSUNGEN</a>
+    <a href="#">INFORMATIONEN</a>
+    <a href="#">KONTAKT</a>
+  </nav>
+  <a href="#" class="login">Login</a>
+</div>
+
+ 
+<div class="small-navbar">
+  <div class="navbar">
+    <div class="brand">Vertrauenswürdigkeits-Plattform</div><mat-icon (click)="toggleMenu()">menu</mat-icon>
+  </div>
+  <ul *ngIf="isMenuVisible">
+    <li><a mat-button href="#">STARTSEITE</a></li>
+    <li> 
+      <a mat-button [matMenuTriggerFor]="menu" >Unternehmen</a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateToSehen()">Unternehmen sehen</button>
+        <button mat-menu-item (click)="navigateToVergleichen()">Unternehmen vergleichen</button>
+      </mat-menu>
+      <button mat-button matSuffix [matMenuTriggerFor]="menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </li>
+    <li><a mat-button href="#">IT-SICHERHEITSLÖSUNGEN</a></li>
+    <li><a mat-button href="#">INFORMATIONEN</a></li>
+    <li><a mat-button href="#">KONTAKT</a></li>
+    <li><a mat-button href="#" class="login">Login</a></li>
+  </ul>
+</div>
+ 
+<router-outlet></router-outlet>
+
+<footer>
+  <div class="container">
+    <div><img alt="Logo" height="150" src="../../../assets/images/footer.jpg"></div>
+    <div class="kontakt">
+      <button mat-button routerLink="impressum">Impressum</button>
+      <button mat-button routerLink="datenschutz">Datenschutzerklärung</button>
+      <button mat-button routerLink="kontakt">Kontakt</button>
+      <div>
+        <a href="mailto:pohlmann@internet-sicherheit.de" mat-icon-button>
+          <mat-icon>mail</mat-icon>
+        </a>
+        <a href="https://twitter.com/ProfPohlmann" mat-icon-button><img
+          alt="Twitter"
+          height="19px"
+          src="../../../assets/images/twitter.png"
+          width="21px"
+        ></a>
+        <a href="https://www.linkedin.com/in/norbert-pohlmann-a2b9775/" mat-icon-button><img
+          alt="Linkedin"
+          height="19px"
+          src="../../../assets/images/linkedin.png"
+          width="19px"
+        ></a>
+        <a href="https://www.xing.com/profile/Norbert_Pohlmann" mat-icon-button><img
+          alt="Xing"
+          height="19px"
+          src="../../../assets/images/xing.png"
+          width="19px"
+        ></a>
+      </div>
+    </div>
+    <div class="glossar">
+      <a href="/glossar">
+        <img
+          alt="Logo Cyber-Sicherheit Glossar Prof. Norbert Pohlmann"
+          src="https://norbert-pohlmann.com/wp-content/uploads/2021/01/Logo-Cyber-Sicherheit-Glossar-Prof.-Norbert-Pohlmann-1.png"
+          style="width:150px;"
+        >
+      </a>
+    </div>
+  </div>
+</footer>
+

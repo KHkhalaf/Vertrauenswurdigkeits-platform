@@ -1,0 +1,229 @@
+<content>
+  <section>
+    <div class="header-container">
+      <div class="search-container1">
+        <p class="headline1">Sicherheit</p>
+        <img
+          alt="Orange-Line"
+          class="orange-line1"
+          src="../../../assets/images/orange-line.png"
+          width="580px"
+        />
+      </div>
+    </div> 
+    <div class="container">
+      <div style="width: 100%;">
+        <div class="unternehmen-info" *ngIf="!isVergleichen; else elseBlock">
+          <strong>Unternehmen:</strong>
+          <mat-form-field class="suchefield">
+            <div class="custom-dropdown">
+              <input
+                [formControl]="searchControl1"
+                matInput
+                #searchBar1
+                [matAutocomplete]="auto1" 
+              />
+              <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="navigateToUnternehmenVergleichenChartComponentBySelection($event)">
+                <mat-option
+                  *ngFor="let option of someUnternehmen1 | async"
+                  [value]="option">
+                  {{ option }}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+          </mat-form-field>
+        </div>
+        <ng-template #elseBlock>
+          <div class="unternehmen-info">
+            <strong>Unternehmen -1-</strong>
+            <mat-form-field class="suchefield">
+              <div class="custom-dropdown">
+                <input
+                  [formControl]="searchControl1"
+                  matInput
+                  #searchBar1
+                  [matAutocomplete]="auto1" 
+                />
+                <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="navigateToUnternehmenVergleichenChartComponentBySelection($event)">
+                  <mat-option
+                    *ngFor="let option of someUnternehmen1 | async"
+                    [value]="option">
+                    {{ option }}
+                  </mat-option>
+                </mat-autocomplete>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </div>
+            </mat-form-field>
+            <strong>Unternehmen -2-</strong>
+            <mat-form-field class="suchefield">
+              <div class="custom-dropdown">
+                <input
+                  [formControl]="searchControl2"
+                  matInput
+                  #searchBar2
+                  [matAutocomplete]="auto2" 
+                />
+                <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="navigateToUnternehmenVergleichenChartComponentBySelection($event)">
+                  <mat-option
+                    *ngFor="let option of someUnternehmen2 | async"
+                    [value]="option">
+                    {{ option }}
+                  </mat-option>
+                </mat-autocomplete>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </div>
+            </mat-form-field>
+          </div>
+        </ng-template>
+        <p class="headline2">1-ISO27001 Zertifierung</p>
+      </div>
+      <div class="question-chart">
+        <div>
+          <div class="question">
+            <h2>It-sicherheit_iso_27k1(„Der Hersteller verfugt uber eine ISO27001 Zertifizierung.</h2>
+            <div>
+              <mat-radio-group [disabled] = "isVergleichen" [value]="isVergleichen ? null : selectedOptionJaOderNein">
+                <mat-radio-button [value]="'ja'"><span>ja</span></mat-radio-button><br/>
+                <mat-radio-button [value]="'nein'"><span>nein</span></mat-radio-button>
+              </mat-radio-group> 
+            </div>
+          </div>
+          <div *ngIf="isVergleichen" class="isvergleich-box">
+            <h3 class="underlinetext">Ausgewählte Unternehmen ISO27001 Zertifizierung:</h3>
+            <h3 class="underlinetext">Unternehmen Name: <span class="underlinetext" style="margin-left: 250px;">ISO27001 Zertifizierung:</span></h3>
+            <h3 class="red-unternehmen-name">{{ unternehmen[0] }}<span class="red-unternehmen-name" class="marginleft">{{jaOderNein[0]}}</span></h3>
+            <h3 class="blue-unternehmen-name">{{ unternehmen[1] }}<span class="blue-unternehmen-name" class="marginleft">{{jaOderNein[1]}}</span></h3>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas class="chart" width="650" height="400" id="chart1"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section> 
+    <div class="container">
+      <div style="width: 100%;">
+        <p class="headline2">2. IT-Sicherheit ISMS Status</p>
+      </div>
+      <div class="question-chart">
+        <div>
+        <div class="question">
+          <h2>Der Hersteller setzt ein ISMS ein und hat die Maßnahmen umgesetzt.</h2>
+          <div>
+            <mat-radio-group [disabled] = "isVergleichen" [value]="isVergleichen ? null : selectedOptionnISMS">
+              <mat-radio-button [value]="'0'"><span>kein ISMS</span></mat-radio-button><br/>
+              <mat-radio-button [value]="'1'"><span>ISMS fur Kernprozesse</span></mat-radio-button><br/>
+              <mat-radio-button [value]="'2'"><span>ISMS großtenteils vollständig</span></mat-radio-button><br/>
+              <mat-radio-button [value]="'3'"><span>ISMS Zertifiziert) Abstufung</span></mat-radio-button>
+            </mat-radio-group>   
+          </div>
+        </div>
+        
+        <div *ngIf="isVergleichen" class="isvergleich-box">
+          <h3 class="underlinetext">Ausgewählte Unternehmen IT-Sicherheit ISMS Status:</h3>
+          <h3 class="underlinetext">Unternehmen Name: <span class="underlinetext" style="margin-left: 250px;">IS-Managementsystem:</span></h3>
+          <h3 class="red-unternehmen-name">{{ unternehmen[0] }}<span class="red-unternehmen-name" class="marginleft">{{ISMSStatus[0]}}</span></h3>
+          <h3 class="blue-unternehmen-name">{{ unternehmen[1] }}<span class="blue-unternehmen-name" class="marginleft">{{ISMSStatus[1]}}</span></h3>
+        </div>
+        </div>
+      <div class="chart-container">
+        <canvas class="chart" style="margin-bottom: 50px;" width="650" height="400" id="chart2"></canvas>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section> 
+    <div class="container">
+      <div style="width: 100%;">
+        <p class="headline2">3. IT-Sicherheit ITS Budget</p>
+      </div>
+      <div class="question-chart">
+        <div>
+          <div class="question">
+            <h2>Der Hersteller hat im vergangenen Jahr x% seines IT-Budgets in IT-Sicherheit investiert.</h2><br/>
+            <h2>Angabe in Prozent : <span *ngIf="!isVergleichen;" style="color: red;">{{angabeInProzent}}</span></h2>
+          </div>
+          <div *ngIf="isVergleichen" class="isvergleich-box">
+            <h3 class="underlinetext">Ausgewählte Unternehmen IT-Sicherheit ITS Budget:</h3>
+            <h3 class="underlinetext">Unternehmen Name: <span class="underlinetext" style="margin-left: 250px;">Budget:</span></h3>
+            <h3 class="red-unternehmen-name">{{ unternehmen[0] }}<span class="red-unternehmen-name" class="marginleft">{{budget[0]}}</span></h3>
+            <h3 class="blue-unternehmen-name">{{ unternehmen[1] }}<span class="blue-unternehmen-name" class="marginleft">{{budget[1]}}</span></h3>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas class="chart" width="650" height="400" id="chart3"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section> 
+    <div class="container">
+      <div style="width: 100%;">
+        <p class="headline2">4. IT-Sicherheit Vuln-Test</p>
+      </div>
+      <div class="question-chart">
+        <div>
+          <div class="question">
+            <h2>Der Hersteller verwendet die folgenden Techniken, um seine IT-Losungen und IT-Systeme auf Schwachstellen zu uberprufen</h2>
+            <div>
+              <div *ngFor="let item of items">
+                <mat-checkbox [disabled] = "isVergleichen"
+                  [checked]="selectedOptionnITLosungen.includes(item)">
+                  <span>{{ item }}</span>
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isVergleichen" class="isvergleich-box">
+            <h3 class="underlinetext">Ausgewählte Unternehmen IT-Sicherheit Vuln-Test:</h3>
+            <h3 class="underlinetext">Unternehmen Name: <span class="underlinetext" style="margin-left: 50px;">ITS Vuln-Test:</span><span class="underlinetext" style="margin-left: 80px;">ITS Vuln-Test Status:</span></h3>
+            <h3 class="red-unternehmen-name">{{ unternehmen[0] }}<span class="red-unternehmen-name" class="marginleft-v2">{{VulnTest[0]}}</span><span class="red-unternehmen-name" class="marginleft-v3">{{VulnTestStatus[0]}}</span></h3>
+            <h3 class="blue-unternehmen-name">{{ unternehmen[1] }}<span class="blue-unternehmen-name" class="marginleft-v2">{{VulnTest[1]}}</span><span class="red-unternehmen-name" class="marginleft-v3">{{VulnTestStatus[1]}}</span></h3>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas class="chart" style="margin-bottom: 110px;" width="650" height="400" id="chart4"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section> 
+    <div class="container">
+      <div style="width: 100%;">
+        <p class="headline2">5. IT-Sicherheit Priority</p>
+      </div>
+      <div class="question-chart">
+        <div>
+          <div class="question">
+            <h2>Der Hersteller legt bei der Gestaltung der ITS- Ausgaben besonderen Wert auf:</h2>
+            <div>
+              <mat-radio-group [disabled] = "isVergleichen" [value]="isVergleichen ? null : selectedOptionnAusgaben">
+                <mat-radio-button [value]="'a'"><span>a- Mitarbeiter-Awareness</span></mat-radio-button><br/>
+                <mat-radio-button [value]="'b'"><span>b- Cloud-Sicherheit</span></mat-radio-button><br/>
+                <mat-radio-button [value]="'c'"><span>c- Verfugbarkeit</span></mat-radio-button><br/>
+                <mat-radio-button [value]="'d'"><span>d- Cyber-Sicherheits-maßnahmen</span></mat-radio-button><br/>
+                <mat-radio-button [value]="'e'"><span>e- Unternehmens-infrastruktur</span></mat-radio-button>
+              </mat-radio-group>   
+            </div>
+          </div>
+          <div *ngIf="isVergleichen" class="isvergleich-box">
+            <h3 class="underlinetext">Ausgewählte Unternehmen IT-Sicherheit Priority:</h3>
+            <h3 class="underlinetext">Unternehmen Name: <span class="underlinetext" style="margin-left: 50px;">ITS Vuln-Priority:</span><span class="underlinetext" style="margin-left: 50px;">TS Vuln-Priority Status:</span></h3>
+            <h3 class="red-unternehmen-name">{{ unternehmen[0] }}<span class="red-unternehmen-name" class="marginleft-v2">{{VulnPriority[0]}}</span><span class="red-unternehmen-name" class="marginleft-v3">{{VulnPriorityStatus[0]}}</span></h3>
+            <h3 class="blue-unternehmen-name">{{ unternehmen[1] }}<span class="blue-unternehmen-name" class="marginleft-v2">{{VulnPriority[1]}}</span><span class="red-unternehmen-name" class="marginleft-v3">{{VulnPriorityStatus[1]}}</span></h3>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas class="chart" style="margin-bottom: 110px;" width="650" height="400" id="chart5"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>  
+  <button class="navigateBtn" (click)="navigateToUnternehmenSehen()">Unternehmen Sehen ➤ </button>
+</content>

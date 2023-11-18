@@ -1,0 +1,59 @@
+<form>
+  <div class="header-container">
+    <div class="search-container1">
+      <p class="headline1">Unternehmen</p>
+      <img
+        alt="Orange-Line"
+        class="orange-line"
+        src="../../../assets/images/orange-line.png"
+        width="580px"
+      />
+    </div>
+  </div>
+
+  <!-- Unterer Container für die Suchleisten -->
+  <div class="search-wrapper">
+    <mat-toolbar class="suche">
+      <mat-icon (click)="navigateToUnternehmenVergleichenChartComponent()">search</mat-icon>
+      <mat-form-field class="suchefield">
+        <input
+          [formControl]="searchControl1"
+          autocomplete="off"
+          matInput
+          #searchBar1
+          [matAutocomplete]="auto"
+          placeholder="Unternehmen durchsuchen"
+        />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="navigateToUnternehmenVergleichenChartComponentBySelection($event)">
+          <mat-option
+            *ngFor="let option of someUnternehmen1 | async"
+            [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </mat-toolbar>
+
+    <mat-toolbar *ngIf="isVergleichen" class="suche">
+      <mat-icon (click)="navigateToUnternehmenVergleichenChartComponent()">search</mat-icon>
+      <mat-form-field class="suchefield">
+        <input
+          [formControl]="searchControl2"
+          autocomplete="off"
+          matInput
+          #searchBar2
+          [matAutocomplete]="auto2"
+          placeholder="Unternehmen durchsuchen"
+        />
+        <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="navigateToUnternehmenVergleichenChartComponentBySelection($event)">
+          <mat-option
+            *ngFor="let option of someUnternehmen2 | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </mat-toolbar>
+  </div>
+</form>
